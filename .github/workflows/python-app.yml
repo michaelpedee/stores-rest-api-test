@@ -34,8 +34,7 @@ jobs:
     - name: Set up proxy
       run: |
         npm config set proxy
-        npm config set http-proxy
 
     - name: Run newman
       run: |
-        newman run "collections/User_create_store_and_item.postman_collection.json" -e "collections/Stores_REST_API.postman_environment.json"
+        HTTP_PROXY='http://127.0.0.1:5000' newman run "collections/User_create_store_and_item.postman_collection.json" -e "collections/Stores_REST_API.postman_environment.json"
